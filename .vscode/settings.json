@@ -1,9 +1,13 @@
 {
   "files.eol": "\n",
   "editor.tabSize": 2,
-
   "editor.formatOnSave": true,
 
+  "eslint.validate": ["javascript", "typescript", "svelte"],
+
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
   "[typescript]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
@@ -27,8 +31,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features",
-    "files.insertFinalNewline": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
     "editor.wordWrap": "on",
