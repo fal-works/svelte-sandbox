@@ -9,12 +9,13 @@ import css from "rollup-plugin-css-only";
 
 const production = !process.env.ROLLUP_WATCH;
 
-function serve() {
+/** @returns {RollupPlugin} */
+const serve = () => {
   let server;
 
-  function toExit() {
+  const toExit = () => {
     if (server) server.kill(0);
-  }
+  };
 
   return {
     writeBundle() {
@@ -32,15 +33,16 @@ function serve() {
       process.on("exit", toExit);
     },
   };
-}
+};
 
-export default {
+/** @type {RollupOptions} */
+const config = {
   input: "src/main.ts",
   output: {
     sourcemap: true,
     format: "iife",
-    name: "app",
     file: "public/build/bundle.js",
+    // name: "app",
   },
   plugins: [
     svelte({
@@ -85,3 +87,8 @@ export default {
     clearScreen: false,
   },
 };
+
+export default config;
+
+/** @typedef {import("rollup").RollupOptions} RollupOptions */
+/** @typedef {import("rollup").Plugin} RollupPlugin */
