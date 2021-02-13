@@ -2,7 +2,7 @@
 
 /** @type {ESLintConfig} */
 const config = {
-  ignorePatterns: ["**/*.html"],
+  ignorePatterns: ["**/*.html", "build/"],
   env: {
     es6: true,
     browser: true,
